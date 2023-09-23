@@ -18,9 +18,8 @@ public class Employee extends Human{
         this.salary = 0;
     }
 
-    public Employee(String name, String surname, int age, String jobTitle, String paymentType) {
+    public Employee(String name, String surname, int age, String paymentType) {
         super(name, surname, age);
-        this.jobTitle = jobTitle;
         this.paymentType = paymentType;
         this.salary = 0;
     }

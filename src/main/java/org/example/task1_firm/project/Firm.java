@@ -8,6 +8,7 @@ public class Firm{
     Enum<JobTitle> jobTitleEnum;
     private ArrayList<String> paymentT;
     private ArrayList<Employee> employees;
+    private double allSalary;
 
     public Firm() {
         paymentT = new ArrayList<>();
@@ -15,6 +16,7 @@ public class Firm{
         paymentT.add("ставка");
         paymentT.add("почасовая");
         paymentT.add("сдельная");
+        this.allSalary = 0;
     }
 
     public Employee recruitment(Human human){
@@ -54,16 +56,18 @@ public class Firm{
         }
         if (employee.getPaymentType() == this.paymentT.get(2)){
             double salary = Double.parseDouble(JOptionPane.showInputDialog(null,
-                    "Оплата труда за одну выполненую работу", employee.getName() + " " + employee.getSurname() + " Ставка",
+                    "Оплата труда за одну выполненую работу",
+                    employee.getName() + " " + employee.getSurname() + " Ставка",
                     JOptionPane.INFORMATION_MESSAGE));
             double langOfWork = Integer.parseInt(JOptionPane.showInputDialog(null,
                     "Количество выполненных работ", "Срок", JOptionPane.INFORMATION_MESSAGE));
             employee.salaryCalc(salary, langOfWork);
         }
+        this.allSalary += employee.getSalary();
     }
 
     @Override
     public String toString() {
-        return "Сотрудники\n" + employees;
+        return String.format("Сотрудники\n%s\nИтог\t\t%.2f",this.employees, this.allSalary);
     }
 }
