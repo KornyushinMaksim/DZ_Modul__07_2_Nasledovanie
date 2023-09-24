@@ -1,20 +1,19 @@
-package org.example.task1_firm.project;
+package org.example.people;
 
 public class Human {
     private String name;
     private String surname;
-    private int age;
+    private boolean child;
 
     public Human() {
         this.name = new String();
         this.surname = new String();
-        this.age = 0;
     }
 
-    public Human(String name, String surname, int age) {
+    public Human(String name, String surname, boolean child) {
         this.name = name;
         this.surname = surname;
-        this.age = age;
+        this.child = child;
     }
 
     public String getName() {
@@ -33,12 +32,12 @@ public class Human {
         this.surname = surname;
     }
 
-    public int getAge() {
-        return age;
+    public boolean getChild() {
+        return child;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setChild(boolean child) {
+        this.child = child;
     }
 
     public void salaryCalc(double salary, double longOfWork){
@@ -47,6 +46,6 @@ public class Human {
 
     @Override
     public String toString() {
-        return String.format("%s %s %d", name, surname, age);
+        return String.format("%s %s", name, surname);
     }
 }
